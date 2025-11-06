@@ -31,6 +31,27 @@ img {
   width: 80%;
 }
 
+#roll_Button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  background: #4ECCA3;
+  color: #232931;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  font-family: 'Indie Flower', cursive;
+}
+
+#roll_Button:hover {
+  background-color: transparent;
+  color: antiquewhite;
+  border: 2px solid whitesmoke;
+  transform: scale(1);
+  transition: 0.2s;
+}
+
 footer {
   margin-top: 5%;
   color: #EEEEEE;
