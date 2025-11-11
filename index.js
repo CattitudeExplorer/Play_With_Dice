@@ -8,17 +8,25 @@ var arrayImages = [
     './images/dice6.png',
 ];
 
+// Select the HTML elements for images, title, roll button and score
+const imag1 = document.querySelector(".img1");
+const imag2 = document.querySelector(".img2");
+const title = document.querySelector("h1");
+const totalScore = document.querySelector("#score");
+const roll_Button = document.querySelector("#roll_Button");
+
+let scorePlayer1 = 0;
+let scorePlayer2 = 0;    
+
+if(roll_Button){
+    roll_Button.addEventListener('click', rollDice);  // When button is clicked, roll the dice)
+}
+
+
 function rollDice() {
     // Generate random numbers from 0 to 5 for each player
     var randomNumber1 = Math.floor(Math.random() * arrayImages.length);
     var randomNumber2 = Math.floor(Math.random() * arrayImages.length);
-
-    // Select the HTML elements for images, title and subtitle to manipulate them
-    var imag1 = document.querySelector(".img1");
-    var imag2 = document.querySelector(".img2");
-    var title = document.querySelector("h1");
-    var refresh = document.querySelector("p");
-    var roll_Button = document.querySelector("#roll_Button");
 
     // Select the images randomly from the array for each player
     var randomImage1 = arrayImages[randomNumber1];
@@ -26,18 +34,26 @@ function rollDice() {
     var randomImage2 = arrayImages[randomNumber2];
     imag2.setAttribute("src", randomImage2);
 
-    // Conditions to determine the winner
-    if(randomImage1 === randomImage2) {
+    // Conditions to determine the winner with numeric rolls
+    if(randomNumber1 === randomNumber2) {
         title.innerHTML = "Draw!";
     } 
-    else if(randomImage1 > randomImage2) {
+    else if(randomNumber1 > randomNumber2) {
         title.innerHTML = "🚩Player 1 Wins!"   
+        scorePlayer1++;
+        //console.log(scorePlayer1);
     }
     else {
         title.innerHTML = "Player 2 Wins!🚩"
+        scorePlayer2++;
+        //console.log(scorePlayer2);
     }
+
+    if(totalScore){
+        totalScore.textContent = `Score: ${scorePlayer1} - ${scorePlayer2}`;
+    }
+    
 }
-// When button is clicked, roll the dice
-roll_Button.addEventListener('click', rollDice);
+
 
 
