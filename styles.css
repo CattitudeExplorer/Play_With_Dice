@@ -44,7 +44,7 @@ img {
   padding: 12px 24px;
   font-size: 1.4rem;
   border-radius: 12px;
-  border: none;
+  border: 2px solid transparent;
   cursor: pointer;
   background: #4ECCA3;
   color: #232931;
@@ -56,9 +56,29 @@ img {
   background-color: transparent;
   color: antiquewhite;
   border: 2px solid whitesmoke;
-  transform: scale(1);
-  transition: 0.2s;
+  transform: scale(1.04);
+  transition: 0.3s;
 }
+
+#reset_Button {
+  margin: 20px 0 0 20px;
+  padding: 12px 24px;
+  font-size: 1.4rem;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+  background: #4ECCA3;
+  color: #232931;
+  font-family: 'Indie Flower', cursive;
+}
+
+ #reset_Button:hover{
+  background-color: transparent;
+  color: antiquewhite;
+  border: 2px solid whitesmoke;
+  transform: scale(1.03);
+  transition: 0.3s;
+ }
 
 footer {
   margin-top: 5%;

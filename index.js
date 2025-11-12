@@ -14,14 +14,26 @@ const imag2 = document.querySelector(".img2");
 const title = document.querySelector("h1");
 const totalScore = document.querySelector("#score");
 const roll_Button = document.querySelector("#roll_Button");
+const reset_Button = document.querySelector("#reset_Button");
 
+// Initialize players score
 let scorePlayer1 = 0;
 let scorePlayer2 = 0;    
 
 if(roll_Button){
-    roll_Button.addEventListener('click', rollDice);  // When button is clicked, roll the dice)
+    roll_Button.addEventListener('click', rollDice);  // When button is clicked, roll the dice
 }
 
+// Attach event listener to reset button (if it exists)
+if(reset_Button){
+    reset_Button.addEventListener('click', resetGame);
+}
+
+function updateScore() {
+    if(totalScore){
+        totalScore.textContent = `Score: ${scorePlayer1} - ${scorePlayer2}`;
+    }
+}
 
 function rollDice() {
     // Generate random numbers from 0 to 5 for each player
@@ -48,12 +60,22 @@ function rollDice() {
         scorePlayer2++;
         //console.log(scorePlayer2);
     }
-
-    if(totalScore){
-        totalScore.textContent = `Score: ${scorePlayer1} - ${scorePlayer2}`;
-    }
+    
+    // Update the score shown on the page after each roll
+    updateScore();
     
 }
 
+function resetGame() {
+    // Reset players score
+    scorePlayer1 = 0;
+    scorePlayer2 = 0;
+
+    // Update the score on the page
+    updateScore();
+
+    // Reset the title text
+    title.innerHTML = "Let's Play With Dice 🎲";
+}
 
 
